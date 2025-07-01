@@ -47,7 +47,13 @@ const translations = {
         explanation: "Penjelasan",
         exampleUsage: "Contoh Penggunaan",
         references: "Referensi",
-        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd."
+        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.",
+        comicIllustration: "Ilustrasi Komik",
+        generateIllustration: "Buatkan Ilustrasi",
+        generatingComic: "Membuat komik...",
+        generatingComicDescription: "AI sedang menggambar komik untuk Anda. Ini mungkin butuh beberapa saat.",
+        comicAltText: "Komik strip yang mengilustrasikan '{term}'",
+        comicGenerationPrompt: "Klik untuk membuat komik strip AI.",
     },
     en: {
         title: "ReLanguage Decipher",
@@ -63,7 +69,13 @@ const translations = {
         explanation: "Explanation",
         exampleUsage: "Example Usage",
         references: "References",
-        projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd."
+        projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd.",
+        comicIllustration: "Comic Illustration",
+        generateIllustration: "Generate Illustration",
+        generatingComic: "Generating comic...",
+        generatingComicDescription: "The AI is drawing a comic for you. This might take a moment.",
+        comicAltText: "Comic strip illustrating '{term}'",
+        comicGenerationPrompt: "Click to generate an AI comic strip.",
     }
 };
 
