@@ -45,6 +45,16 @@ export function ResultsSkeleton() {
               <Skeleton className="h-4 w-3/4" />
             </div>
           </div>
+
+          <Separator />
+
+          <div className="space-y-4 px-6">
+            <Skeleton className="h-7 w-1/3" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
+            </div>
+          </div>
           
           <Separator />
           

@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Icons } from '@/components/icons';
-import { Instagram, MessageSquare, Link as LinkIcon, Tag, Users, Sparkles } from 'lucide-react';
+import { Instagram, MessageSquare, Link as LinkIcon, Tag, Users, Sparkles, MessageSquareQuote } from 'lucide-react';
 import type { InterpretationResult } from '@/lib/types';
 
 interface ResultsDisplayProps {
@@ -78,6 +78,27 @@ export function ResultsDisplay({ data, translations }: ResultsDisplayProps) {
             <p className="text-muted-foreground leading-relaxed">{data.explanation}</p>
           </div>
         </div>
+
+        {data.exampleSentences && data.exampleSentences.length > 0 && (
+          <div className="space-y-6">
+            <Separator className="bg-primary/20" />
+            <div className="space-y-4 px-6">
+              <div className="flex items-center gap-3">
+                <MessageSquareQuote className="h-6 w-6 text-accent" />
+                <h4 className="font-headline text-2xl font-semibold">
+                  {translations.exampleUsage}
+                </h4>
+              </div>
+              <ul className="list-inside list-disc space-y-3 text-muted-foreground">
+                {data.exampleSentences.map((sentence, index) => (
+                  <li key={index} className="leading-relaxed pl-2">
+                    &ldquo;{sentence}&rdquo;
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
 
         {data.references && data.references.length > 0 && (
           <div className="space-y-6">

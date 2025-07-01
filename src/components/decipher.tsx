@@ -45,6 +45,7 @@ const translations = {
         linguisticCategory: "Kategori Linguistik",
         socialCategory: "Kategori Sosial",
         explanation: "Penjelasan",
+        exampleUsage: "Contoh Penggunaan",
         references: "Referensi",
         projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd."
     },
@@ -60,6 +61,7 @@ const translations = {
         linguisticCategory: "Linguistic Category",
         socialCategory: "Social Category",
         explanation: "Explanation",
+        exampleUsage: "Example Usage",
         references: "References",
         projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd."
     }

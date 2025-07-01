@@ -24,6 +24,7 @@ const InterpretYouthLanguageOutputSchema = z.object({
   linguisticCategory: z.string().describe('The linguistic category of the term (e.g., Emoji, Singkatan, Slang).'),
   socialCategory: z.string().describe('The social category of the term (e.g., Komunikasi Sosial, Ekspresi Emosi).'),
   explanation: z.string().describe('A detailed explanation of the term and its usage.'),
+  exampleSentences: z.array(z.string()).describe('Example sentences showing how the term is used in daily conversation.'),
   references: z.array(z.string()).describe('Links to references for further reading.'),
 });
 export type InterpretYouthLanguageOutput = z.infer<typeof InterpretYouthLanguageOutputSchema>;
@@ -52,6 +53,7 @@ const interpretYouthLanguagePrompt = ai.definePrompt({
   - linguisticCategory: The linguistic category of the term (e.g., Emoji, Singkatan, Slang), in the target language.
   - socialCategory: The social category of the term (e.g., Komunikasi Sosial, Ekspresi Emosi), in the target language.
   - explanation: A detailed explanation of the term and its usage, in the target language.
+  - exampleSentences: An array of 2-3 example sentences showing how the term is used in daily conversation, in the target language.
   - references: Links to references for further reading. The links themselves should not be translated, but if you provide any context, it should be in the target language.
   `,
 });
