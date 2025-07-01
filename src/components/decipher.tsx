@@ -27,6 +27,7 @@ import { performSearch } from '@/app/actions';
 import type { SearchResult } from '@/lib/types';
 import { LanguageSwitcher } from './language-switcher';
 import { AboutDialog } from './about-dialog';
+import { ThemeSwitcher } from './theme-switcher';
 
 const formSchema = z.object({
   query: z.string().min(1, { message: 'Please enter a term or emoji.' }),
@@ -135,6 +136,7 @@ export function Decipher() {
             <div className="flex items-center gap-2">
               <AboutDialog />
               <LanguageSwitcher />
+              <ThemeSwitcher />
             </div>
           </div>
           <div className="inline-flex items-center gap-3">
@@ -146,6 +148,7 @@ export function Decipher() {
           <div className="flex items-center gap-2">
             <AboutDialog />
             <LanguageSwitcher />
+            <ThemeSwitcher />
           </div>
         </div>
         <p className="mt-4 text-center text-base sm:text-lg text-muted-foreground">
