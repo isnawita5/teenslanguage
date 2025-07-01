@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -48,7 +49,7 @@ const translations = {
         explanation: "Penjelasan",
         exampleUsage: "Contoh Penggunaan",
         references: "Referensi",
-        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.",
+        projectBy: "Dikembangkan oleh Tolopani dan Isnawita",
         comicIllustration: "Ilustrasi Komik",
         generateIllustration: "Buatkan Ilustrasi",
         generatingComic: "Membuat komik...",
@@ -70,7 +71,7 @@ const translations = {
         explanation: "Explanation",
         exampleUsage: "Example Usage",
         references: "References",
-        projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd.",
+        projectBy: "Developed by Tolopani and Isnawita",
         comicIllustration: "Comic Illustration",
         generateIllustration: "Generate Illustration",
         generatingComic: "Generating comic...",

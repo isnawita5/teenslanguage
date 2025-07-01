@@ -30,8 +30,7 @@ const translations = {
       'Klik tombol "Cari" untuk melihat hasil yang terperinci.',
       'Klik "Buatkan Ilustrasi" untuk melihat komik strip berdasarkan contoh kalimat.',
     ],
-    projectBy: 'Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.',
-    poweredBy: 'Didukung oleh Google AI dan Firebase.',
+    projectBy: 'Dikembangkan oleh Tolopani dan Isnawita',
   },
   en: {
     about: 'About',
@@ -48,8 +47,7 @@ const translations = {
       'Click the "Search" button to see the detailed results.',
       'Click "Generate Illustration" to see a comic strip based on the example sentences.',
     ],
-    projectBy: 'A project by Isnawita Mokodompit, S. Pd, M. Pd.',
-    poweredBy: 'Powered by Google AI and Firebase.',
+    projectBy: 'Developed by Tolopani and Isnawita',
   },
 };
 
@@ -94,7 +92,6 @@ export function AboutDialog() {
         </div>
         <div className="mt-4 text-center text-sm text-muted-foreground border-t pt-4">
           <p className="font-semibold">{t.projectBy}</p>
-          <p className="mt-2 text-xs">{t.poweredBy}</p>
         </div>
       </DialogContent>
     </Dialog>
