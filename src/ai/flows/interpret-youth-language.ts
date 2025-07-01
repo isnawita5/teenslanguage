@@ -13,6 +13,7 @@ import {z} from 'genkit';
 
 const InterpretYouthLanguageInputSchema = z.object({
   query: z.string().describe('The keyword, phrase, or emoji to interpret.'),
+  language: z.enum(['en', 'id']).describe('The language for the response. Can be "en" for English or "id" for Indonesian.'),
 });
 export type InterpretYouthLanguageInput = z.infer<typeof InterpretYouthLanguageInputSchema>;
 
@@ -35,7 +36,9 @@ const interpretYouthLanguagePrompt = ai.definePrompt({
   name: 'interpretYouthLanguagePrompt',
   input: {schema: InterpretYouthLanguageInputSchema},
   output: {schema: InterpretYouthLanguageOutputSchema},
-  prompt: `You are an expert in modern youth language and culture.  Given a keyword, phrase, or emoji, you will provide a detailed interpretation of its meaning and usage.
+  prompt: `You are an expert in modern youth language and culture. Given a keyword, phrase, or emoji, you will provide a detailed interpretation of its meaning and usage.
+
+  Respond in the language specified: {{language}}. If the language is 'id', respond in Bahasa Indonesia. If the language is 'en', respond in English.
 
   Analyze the following input:
   {{query}}

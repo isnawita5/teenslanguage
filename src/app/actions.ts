@@ -4,23 +4,37 @@ import { interpretYouthLanguage } from '@/ai/flows/interpret-youth-language';
 import { suggestRelatedTerms } from '@/ai/flows/suggest-related-terms';
 import type { SearchResult } from '@/lib/types';
 
+const errors = {
+    en: {
+        emptyQuery: 'Search query cannot be empty.',
+        noInterpretation: 'Could not find an interpretation for the given term.',
+        unexpected: 'An unexpected error occurred. Please try again later.'
+    },
+    id: {
+        emptyQuery: 'Kolom pencarian tidak boleh kosong.',
+        noInterpretation: 'Tidak dapat menemukan interpretasi untuk istilah yang diberikan.',
+        unexpected: 'Terjadi kesalahan tak terduga. Silakan coba lagi nanti.'
+    }
+}
+
 export async function performSearch(
-  query: string
+  query: string,
+  language: 'en' | 'id'
 ): Promise<{ data: SearchResult | null; error: string | null }> {
   if (!query) {
-    return { data: null, error: 'Search query cannot be empty.' };
+    return { data: null, error: errors[language].emptyQuery };
   }
 
   try {
     const [interpretation, relatedTerms] = await Promise.all([
-      interpretYouthLanguage({ query }),
+      interpretYouthLanguage({ query, language }),
       suggestRelatedTerms({ query }),
     ]);
 
     if (!interpretation || !interpretation.meaning) {
       return {
         data: null,
-        error: 'Could not find an interpretation for the given term.',
+        error: errors[language].noInterpretation,
       };
     }
 
@@ -29,7 +43,7 @@ export async function performSearch(
     console.error('Search action failed:', error);
     return {
       data: null,
-      error: 'An unexpected error occurred. Please try again later.',
+      error: errors[language].unexpected,
     };
   }
 }

@@ -24,7 +24,7 @@ export function EmojiPicker({ onSelectEmoji }: EmojiPickerProps) {
         <Button
           variant="outline"
           size="icon"
-          className="shrink-0"
+          className="shrink-0 h-14 w-14"
           aria-label="Open emoji picker"
         >
           <Smile className="h-5 w-5" />

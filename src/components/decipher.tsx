@@ -6,10 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Loader2, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/context/language-context';
 
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
   Form,
   FormControl,
@@ -23,16 +25,51 @@ import { ResultsDisplay } from '@/components/results-display';
 import { RelatedSearches } from '@/components/related-searches';
 import { performSearch } from '@/app/actions';
 import type { SearchResult } from '@/lib/types';
+import { LanguageSwitcher } from './language-switcher';
 
 const formSchema = z.object({
   query: z.string().min(1, { message: 'Please enter a term or emoji.' }),
 });
+
+const translations = {
+    id: {
+        title: "ReLanguage Decipher",
+        subtitle: "Uraikan bahasa gaul modern, slang, dan emoji dengan kekuatan AI.",
+        searchPlaceholder: "Ketik kata, frasa, atau emoji (mis., 'santuy', 'kepo', '💀')...",
+        searchButton: "Cari",
+        searchFailedTitle: "Pencarian Gagal",
+        errorTitle: "Ups! Terjadi kesalahan.",
+        relatedSearches: "Pencarian Terkait",
+        platform: "Platform",
+        linguisticCategory: "Kategori Linguistik",
+        socialCategory: "Kategori Sosial",
+        explanation: "Penjelasan",
+        references: "Referensi"
+    },
+    en: {
+        title: "ReLanguage Decipher",
+        subtitle: "Decode modern youth language, slang, and emojis with the power of AI.",
+        searchPlaceholder: "Type a word, phrase, or emoji (e.g., 'rizz', 'iykyk', '💀')...",
+        searchButton: "Search",
+        searchFailedTitle: "Search Failed",
+        errorTitle: "Oops! Something went wrong.",
+        relatedSearches: "Related Searches",
+        platform: "Platform",
+        linguisticCategory: "Linguistic Category",
+        socialCategory: "Social Category",
+        explanation: "Explanation",
+        references: "References"
+    }
+};
 
 export function Decipher() {
   const [result, setResult] = useState<SearchResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const { language } = useLanguage();
+
+  const t = translations[language];
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,13 +80,13 @@ export function Decipher() {
     setLoading(true);
     setError(null);
 
-    const { data, error: apiError } = await performSearch(query);
+    const { data, error: apiError } = await performSearch(query, language);
 
     if (apiError) {
       setError(apiError);
       toast({
         variant: 'destructive',
-        title: 'Search Failed',
+        title: t.searchFailedTitle,
         description: apiError,
       });
       setResult(null);
@@ -75,15 +112,18 @@ export function Decipher() {
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8 md:py-16">
-      <header className="text-center mb-12">
+       <header className="text-center mb-12 relative">
+        <div className="absolute top-0 right-0">
+          <LanguageSwitcher />
+        </div>
         <div className="inline-flex items-center gap-3">
           <Icons.logo className="h-10 w-10 text-primary" />
           <h1 className="font-headline text-4xl font-bold md:text-5xl">
-            ReLanguage Decipher
+            {t.title}
           </h1>
         </div>
         <p className="mt-4 text-lg text-muted-foreground">
-          Decode modern youth language, slang, and emojis with the power of AI.
+          {t.subtitle}
         </p>
       </header>
 
@@ -100,7 +140,7 @@ export function Decipher() {
                       <div className="relative w-full">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input
-                          placeholder="Type a word, phrase, or emoji (e.g., 'rizz', 'iykyk', '💀')..."
+                          placeholder={t.searchPlaceholder}
                           className="pl-10 h-14 text-lg"
                           {...field}
                         />
@@ -111,7 +151,7 @@ export function Decipher() {
                       {loading ? (
                         <Loader2 className="h-6 w-6 animate-spin" />
                       ) : (
-                        <span>Search</span>
+                        <span>{t.searchButton}</span>
                       )}
                     </Button>
                   </div>
@@ -127,17 +167,18 @@ export function Decipher() {
             {error && !loading && (
               <Card className="bg-destructive/10 border-destructive text-center">
                   <CardHeader>
-                    <CardTitle className="font-headline text-destructive">Oops! Something went wrong.</CardTitle>
+                    <CardTitle className="font-headline text-destructive">{t.errorTitle}</CardTitle>
                     <CardDescription className="text-destructive/80">{error}</CardDescription>
                   </CardHeader>
               </Card>
             )}
             {result && !loading && !error && (
                 <div className="space-y-8">
-                    <ResultsDisplay data={result.interpretation} />
+                    <ResultsDisplay data={result.interpretation} translations={t} />
                     <RelatedSearches
                         terms={result.relatedTerms}
                         onSearch={handleRelatedSearch}
+                        title={t.relatedSearches}
                     />
                 </div>
             )}

@@ -15,6 +15,7 @@ import type { InterpretationResult } from '@/lib/types';
 
 interface ResultsDisplayProps {
   data: InterpretationResult;
+  translations: { [key: string]: string };
 }
 
 const getPlatformIcon = (platform: string) => {
@@ -28,7 +29,7 @@ const getPlatformIcon = (platform: string) => {
   return <MessageSquare className="h-5 w-5 text-foreground" />;
 };
 
-export function ResultsDisplay({ data }: ResultsDisplayProps) {
+export function ResultsDisplay({ data, translations }: ResultsDisplayProps) {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
@@ -40,7 +41,7 @@ export function ResultsDisplay({ data }: ResultsDisplayProps) {
       <CardContent className="space-y-6">
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-4">
           <div className="space-y-1">
-            <p className="text-sm font-medium text-muted-foreground">Platform</p>
+            <p className="text-sm font-medium text-muted-foreground">{translations.platform}</p>
             <div className="flex items-center gap-2">
               {getPlatformIcon(data.platform)}
               <span className="font-semibold">{data.platform}</span>
@@ -48,13 +49,13 @@ export function ResultsDisplay({ data }: ResultsDisplayProps) {
           </div>
           <div className="space-y-1">
             <p className="text-sm font-medium text-muted-foreground">
-              Linguistic Category
+              {translations.linguisticCategory}
             </p>
             <Badge variant="secondary">{data.linguisticCategory}</Badge>
           </div>
           <div className="space-y-1">
             <p className="text-sm font-medium text-muted-foreground">
-              Social Category
+              {translations.socialCategory}
             </p>
             <Badge variant="secondary">{data.socialCategory}</Badge>
           </div>
@@ -63,13 +64,13 @@ export function ResultsDisplay({ data }: ResultsDisplayProps) {
         <Separator />
 
         <div className="space-y-2">
-          <h4 className="font-headline text-lg font-semibold">Explanation</h4>
+          <h4 className="font-headline text-lg font-semibold">{translations.explanation}</h4>
           <p className="text-muted-foreground">{data.explanation}</p>
         </div>
 
         {data.references && data.references.length > 0 && (
           <div className="space-y-3">
-            <h4 className="font-headline text-lg font-semibold">References</h4>
+            <h4 className="font-headline text-lg font-semibold">{translations.references}</h4>
             <ul className="space-y-2">
               {data.references.map((ref, index) => (
                 <li key={index}>

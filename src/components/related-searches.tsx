@@ -6,16 +6,17 @@ import type { RelatedTermsResult } from '@/lib/types';
 interface RelatedSearchesProps {
   terms: RelatedTermsResult;
   onSearch: (term: string) => void;
+  title: string;
 }
 
-export function RelatedSearches({ terms, onSearch }: RelatedSearchesProps) {
+export function RelatedSearches({ terms, onSearch, title }: RelatedSearchesProps) {
   if (!terms || terms.length === 0) {
     return null;
   }
 
   return (
     <div className="space-y-4">
-      <h3 className="font-headline text-xl font-semibold">Related Searches</h3>
+      <h3 className="font-headline text-xl font-semibold">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {terms.map((term, index) => (
           <button key={index} onClick={() => onSearch(term)}>
