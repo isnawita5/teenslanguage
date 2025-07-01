@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Info } from 'lucide-react';
@@ -17,16 +18,36 @@ const translations = {
   id: {
     about: 'Tentang',
     title: 'Tentang ReLanguage Decipher',
-    description:
-      'ReLanguage Decipher adalah alat yang didukung AI untuk membantu orang tua, pendidik, dan siapa saja yang tertarik untuk memahami bahasa gaul, slang, dan emoji yang terus berkembang yang digunakan oleh generasi muda. Misi kami adalah menjembatani kesenjangan komunikasi antar generasi.',
+    intro:
+      'ReLanguage Decipher adalah alat yang didukung AI yang dirancang untuk membantu orang tua, pendidik, dan siapa saja untuk memahami bahasa gaul, istilah, dan emoji yang terus berkembang yang digunakan oleh generasi muda.',
+    goal: 'Misi utama kami adalah menjembatani kesenjangan komunikasi antargenerasi, mendorong pemahaman dan hubungan yang lebih baik. Di dunia di mana bahasa digital berubah dengan cepat, ReLanguage Decipher hadir sebagai panduan ramah Anda.',
+    howItWorksTitle: 'Cara Kerja',
+    howItWorks:
+      'Cukup ketik kata, frasa, atau bahkan emoji ke dalam kolom pencarian. AI canggih kami, yang didukung oleh model terbaru Google, akan menganalisis permintaan Anda dan memberikan rincian komprehensif, termasuk makna, platform penggunaan umum, konteks linguistik dan sosial, dan contoh kalimat. Anda juga dapat membuat komik strip yang menyenangkan untuk menghidupkan bahasa!',
+    howToUseTitle: 'Cara Penggunaan',
+    howToUse: [
+      'Masukkan istilah yang ingin Anda pahami di kotak pencarian.',
+      'Klik tombol "Cari" untuk melihat hasil yang terperinci.',
+      'Klik "Buatkan Ilustrasi" untuk melihat komik strip berdasarkan contoh kalimat.',
+    ],
     projectBy: 'Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.',
     poweredBy: 'Didukung oleh Google AI dan Firebase.',
   },
   en: {
     about: 'About',
     title: 'About ReLanguage Decipher',
-    description:
-      'ReLanguage Decipher is an AI-powered tool to help parents, educators, and anyone interested in understanding the ever-evolving slang, terms, and emojis used by the younger generation. Our mission is to bridge the communication gap between generations.',
+    intro:
+      'ReLanguage Decipher is an AI-powered tool designed to help parents, educators, and anyone interested in understanding the ever-evolving slang, terms, and emojis used by the younger generation.',
+    goal: 'Our primary mission is to bridge the communication gap between generations, fostering better understanding and connection. In a world where digital language changes rapidly, ReLanguage Decipher serves as your friendly guide.',
+    howItWorksTitle: 'How It Works',
+    howItWorks:
+      "Simply type a word, phrase, or even an emoji into the search bar. Our advanced AI, powered by Google's latest models, will analyze the query and provide a comprehensive breakdown, including its meaning, context, and real-world example sentences. You can also generate a fun comic strip to bring the language to life!",
+    howToUseTitle: 'How to Use',
+    howToUse: [
+      'Enter the term you want to understand in the search box.',
+      'Click the "Search" button to see the detailed results.',
+      'Click "Generate Illustration" to see a comic strip based on the example sentences.',
+    ],
     projectBy: 'A project by Isnawita Mokodompit, S. Pd, M. Pd.',
     poweredBy: 'Powered by Google AI and Firebase.',
   },
@@ -44,17 +65,34 @@ export function AboutDialog() {
           {t.about}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader className="items-center text-center">
           <Icons.logo className="h-12 w-12 text-primary" />
           <DialogTitle className="font-headline text-2xl">
             {t.title}
           </DialogTitle>
-          <DialogDescription className="text-base text-muted-foreground !mt-4">
-            {t.description}
-          </DialogDescription>
         </DialogHeader>
-        <div className="mt-4 text-center text-sm text-muted-foreground">
+        <div className="space-y-4 py-4 text-sm text-muted-foreground text-left max-h-[60vh] overflow-y-auto px-6">
+          <p>{t.intro}</p>
+          <p>{t.goal}</p>
+          <div>
+            <h3 className="font-semibold text-foreground mb-2 text-base">
+              {t.howItWorksTitle}
+            </h3>
+            <p>{t.howItWorks}</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground mb-2 text-base">
+              {t.howToUseTitle}
+            </h3>
+            <ul className="list-decimal list-inside space-y-1">
+              {t.howToUse.map((step, i) => (
+                <li key={i}>{step}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-4 text-center text-sm text-muted-foreground border-t pt-4">
           <p className="font-semibold">{t.projectBy}</p>
           <p className="mt-2 text-xs">{t.poweredBy}</p>
         </div>
