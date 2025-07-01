@@ -38,19 +38,21 @@ const interpretYouthLanguagePrompt = ai.definePrompt({
   output: {schema: InterpretYouthLanguageOutputSchema},
   prompt: `You are an expert in modern youth language and culture. Given a keyword, phrase, or emoji, you will provide a detailed interpretation of its meaning and usage.
 
-  Respond in the language specified: {{language}}. If the language is 'id', respond in Bahasa Indonesia. If the language is 'en', respond in English.
+  Your entire response, including all fields, must be in the language specified by the 'language' parameter.
+  - If 'language' is 'id', respond in Bahasa Indonesia.
+  - If 'language' is 'en', respond in English.
 
   Analyze the following input:
   {{query}}
 
-  Provide the following information in your response:
+  Provide the following information in your response, ensuring all textual content is in the requested language ({{language}}):
   - termPhrase: The entered term or phrase.
-  - platform: The platform where the term is commonly used (e.g., Instagram, TikTok, WhatsApp).
-  - meaning: A brief description of the meaning of the term.
-  - linguisticCategory: The linguistic category of the term (e.g., Emoji, Singkatan, Slang).
-  - socialCategory: The social category of the term (e.g., Komunikasi Sosial, Ekspresi Emosi).
-  - explanation: A detailed explanation of the term and its usage.
-  - references: Links to references for further reading.
+  - platform: The platform where the term is commonly used (e.g., Instagram, TikTok, WhatsApp). The platform name should remain as is, but any description should be in the target language.
+  - meaning: A brief description of the meaning of the term, in the target language.
+  - linguisticCategory: The linguistic category of the term (e.g., Emoji, Singkatan, Slang), in the target language.
+  - socialCategory: The social category of the term (e.g., Komunikasi Sosial, Ekspresi Emosi), in the target language.
+  - explanation: A detailed explanation of the term and its usage, in the target language.
+  - references: Links to references for further reading. The links themselves should not be translated, but if you provide any context, it should be in the target language.
   `,
 });
 
