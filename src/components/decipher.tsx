@@ -114,19 +114,27 @@ export function Decipher() {
   }
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-8 md:py-16">
-       <header className="text-center mb-12 relative">
-        <div className="absolute top-0 right-0 flex items-center gap-2">
-          <AboutDialog />
-          <LanguageSwitcher />
+    <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
+      <header className="mb-12">
+        <div className="flex flex-col-reverse items-center gap-4 sm:flex-row sm:justify-between">
+          <div className="invisible hidden sm:flex" aria-hidden="true">
+            <div className="flex items-center gap-2">
+              <AboutDialog />
+              <LanguageSwitcher />
+            </div>
+          </div>
+          <div className="inline-flex items-center gap-3">
+            <Icons.logo className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+              {t.title}
+            </h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <AboutDialog />
+            <LanguageSwitcher />
+          </div>
         </div>
-        <div className="inline-flex items-center gap-3">
-          <Icons.logo className="h-10 w-10 text-primary" />
-          <h1 className="font-headline text-4xl font-bold md:text-5xl">
-            {t.title}
-          </h1>
-        </div>
-        <p className="mt-4 text-lg text-muted-foreground">
+        <p className="mt-4 text-center text-base sm:text-lg text-muted-foreground">
           {t.subtitle}
         </p>
       </header>
@@ -139,25 +147,27 @@ export function Decipher() {
               name="query"
               render={({ field }) => (
                 <FormItem>
-                  <div className="flex w-full items-start gap-2">
-                    <FormControl>
-                      <div className="relative w-full">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <div className="flex w-full flex-col sm:flex-row items-stretch gap-2">
+                    <div className="relative w-full flex-grow">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <FormControl>
                         <Input
                           placeholder={t.searchPlaceholder}
-                          className="pl-10 h-14 text-lg"
+                          className="pl-10 h-14 text-lg w-full"
                           {...field}
                         />
-                      </div>
-                    </FormControl>
-                    <EmojiPicker onSelectEmoji={handleEmojiSelect} />
-                    <Button type="submit" size="lg" className="h-14" disabled={loading}>
-                      {loading ? (
-                        <Loader2 className="h-6 w-6 animate-spin" />
-                      ) : (
-                        <span>{t.searchButton}</span>
-                      )}
-                    </Button>
+                      </FormControl>
+                    </div>
+                    <div className="flex gap-2">
+                      <EmojiPicker onSelectEmoji={handleEmojiSelect} />
+                      <Button type="submit" size="lg" className="h-14 flex-grow sm:flex-grow-0" disabled={loading}>
+                        {loading ? (
+                          <Loader2 className="h-6 w-6 animate-spin" />
+                        ) : (
+                          <span>{t.searchButton}</span>
+                        )}
+                      </Button>
+                    </div>
                   </div>
                   <FormMessage />
                 </FormItem>
