@@ -44,7 +44,8 @@ const translations = {
         linguisticCategory: "Kategori Linguistik",
         socialCategory: "Kategori Sosial",
         explanation: "Penjelasan",
-        references: "Referensi"
+        references: "Referensi",
+        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd."
     },
     en: {
         title: "ReLanguage Decipher",
@@ -58,7 +59,8 @@ const translations = {
         linguisticCategory: "Linguistic Category",
         socialCategory: "Social Category",
         explanation: "Explanation",
-        references: "References"
+        references: "References",
+        projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd."
     }
 };
 
@@ -184,6 +186,10 @@ export function Decipher() {
             )}
         </div>
       </main>
+
+      <footer className="text-center mt-16 text-sm text-muted-foreground">
+        <p>{t.projectBy}</p>
+      </footer>
     </div>
   );
 }
