@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Smile } from 'lucide-react';
@@ -8,9 +9,12 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
+// Expanded and reordered emoji list based on popularity
 const emojis = [
-  '😀', '😂', '😍', '🤔', '👍', '🙏', '🔥', '💯', '💀', '😭', '💅', '👀',
-  '✨', '🎉', '💔', '🙄', '🤡', '🧢', '🫣', '😮‍💨', '😅', '😏',
+  '😂', '😍', '😭', '❤️', '🔥', '✨', '💀', '👍',
+  '🙏', '🥺', '🥰', '🤔', '👀', '💅', '🤣', '💯',
+  '🎉', '🙄', '🤡', '🧢', '🫣', '😮‍💨', '😅', '😏',
+  '😊', '😉', '💔', '🤯', '🥳', '🤪', '😵‍💫', '🙌',
 ];
 
 interface EmojiPickerProps {
@@ -31,7 +35,7 @@ export function EmojiPicker({ onSelectEmoji }: EmojiPickerProps) {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto border-none bg-transparent shadow-none">
-        <div className="grid grid-cols-6 gap-2 rounded-lg border bg-popover p-4 shadow-lg">
+        <div className="grid grid-cols-8 gap-2 rounded-lg border bg-popover p-4 shadow-lg">
           {emojis.map((emoji) => (
             <button
               key={emoji}
