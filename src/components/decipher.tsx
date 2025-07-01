@@ -26,6 +26,7 @@ import { RelatedSearches } from '@/components/related-searches';
 import { performSearch } from '@/app/actions';
 import type { SearchResult } from '@/lib/types';
 import { LanguageSwitcher } from './language-switcher';
+import { AboutDialog } from './about-dialog';
 
 const formSchema = z.object({
   query: z.string().min(1, { message: 'Please enter a term or emoji.' }),
@@ -115,7 +116,8 @@ export function Decipher() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8 md:py-16">
        <header className="text-center mb-12 relative">
-        <div className="absolute top-0 right-0">
+        <div className="absolute top-0 right-0 flex items-center gap-2">
+          <AboutDialog />
           <LanguageSwitcher />
         </div>
         <div className="inline-flex items-center gap-3">
