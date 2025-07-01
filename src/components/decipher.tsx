@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -49,7 +48,7 @@ const translations = {
         explanation: "Penjelasan",
         exampleUsage: "Contoh Penggunaan",
         references: "Referensi",
-        projectBy: "Didukung oleh Google AI dan Firebase",
+        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.",
         comicIllustration: "Ilustrasi Komik",
         generateIllustration: "Buatkan Ilustrasi",
         generatingComic: "Membuat komik...",
@@ -71,7 +70,7 @@ const translations = {
         explanation: "Explanation",
         exampleUsage: "Example Usage",
         references: "References",
-        projectBy: "Powered by Google AI and Firebase",
+        projectBy: "A project by Isnawita Mokodompit, S. Pd, M. Pd.",
         comicIllustration: "Comic Illustration",
         generateIllustration: "Generate Illustration",
         generatingComic: "Generating comic...",
