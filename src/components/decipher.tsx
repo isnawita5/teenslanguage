@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Loader2, Search } from 'lucide-react';
+import { Loader2, Search, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/context/language-context';
 
@@ -39,6 +39,7 @@ const translations = {
         subtitle: "Uraikan bahasa gaul modern, slang, dan emoji dengan kekuatan AI.",
         searchPlaceholder: "Ketik kata, frasa, atau emoji (mis., 'santuy', 'kepo', '💀')...",
         searchButton: "Cari",
+        clearSearch: "Bersihkan",
         searchFailedTitle: "Pencarian Gagal",
         errorTitle: "Ups! Terjadi kesalahan.",
         relatedSearches: "Pencarian Terkait",
@@ -61,6 +62,7 @@ const translations = {
         subtitle: "Decode modern youth language, slang, and emojis with the power of AI.",
         searchPlaceholder: "Type a word, phrase, or emoji (e.g., 'rizz', 'iykyk', '💀')...",
         searchButton: "Search",
+        clearSearch: "Clear",
         searchFailedTitle: "Search Failed",
         errorTitle: "Oops! Something went wrong.",
         relatedSearches: "Related Searches",
@@ -97,6 +99,7 @@ export function Decipher() {
   const handleSearch = async (query: string) => {
     setLoading(true);
     setError(null);
+    setResult(null);
 
     const { data, error: apiError } = await performSearch(query, language);
 
@@ -127,6 +130,12 @@ export function Decipher() {
   const handleEmojiSelect = (emoji: string) => {
     form.setValue('query', `${form.getValues('query')}${emoji}`);
   }
+
+  const handleClear = () => {
+    form.reset({ query: '' });
+    setResult(null);
+    setError(null);
+  };
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
@@ -170,10 +179,22 @@ export function Decipher() {
                       <FormControl>
                         <Input
                           placeholder={t.searchPlaceholder}
-                          className="pl-10 h-14 text-lg w-full"
+                          className="pl-10 pr-12 h-14 text-lg w-full"
                           {...field}
                         />
                       </FormControl>
+                      {field.value && (
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full text-muted-foreground hover:text-foreground"
+                          onClick={handleClear}
+                          aria-label={t.clearSearch}
+                        >
+                          <X className="h-5 w-5" />
+                        </Button>
+                      )}
                     </div>
                     <div className="flex gap-2">
                       <EmojiPicker onSelectEmoji={handleEmojiSelect} />
