@@ -36,7 +36,7 @@ const formSchema = z.object({
 const translations = {
     id: {
         title: "Teens Language",
-        subtitle: "Uraikan bahasa gaul modern, slang, dan emoji dengan kekuatan AI.",
+        subtitle: "Uraikan bahasa gaul, singkatan, slang, dan emoji dengan kekuatan AI.",
         searchPlaceholder: "Ketik kata, frasa, atau emoji (mis., 'santuy', 'kepo', '💀')...",
         searchButton: "Cari",
         clearSearch: "Bersihkan",
@@ -59,7 +59,7 @@ const translations = {
     },
     en: {
         title: "Teens Language",
-        subtitle: "Decode modern youth language, slang, and emojis with the power of AI.",
+        subtitle: "Decode modern youth language, abbreviations, slang, and emojis with the power of AI.",
         searchPlaceholder: "Type a word, phrase, or emoji (e.g., 'rizz', 'iykyk', '💀')...",
         searchButton: "Search",
         clearSearch: "Clear",

@@ -12,7 +12,7 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const InterpretYouthLanguageInputSchema = z.object({
-  query: z.string().describe('The keyword, phrase, or emoji to interpret.'),
+  query: z.string().describe('The keyword, phrase, abbreviation, or emoji to interpret.'),
   language: z.enum(['en', 'id']).describe('The language for the response. Can be "en" for English or "id" for Indonesian.'),
 });
 export type InterpretYouthLanguageInput = z.infer<typeof InterpretYouthLanguageInputSchema>;
@@ -21,7 +21,7 @@ const InterpretYouthLanguageOutputSchema = z.object({
   termPhrase: z.string().describe('The entered term or phrase.'),
   platform: z.string().describe('The platform where the term is commonly used (e.g., Instagram, TikTok, WhatsApp).'),
   meaning: z.string().describe('A brief description of the meaning of the term.'),
-  linguisticCategory: z.string().describe('The linguistic category of the term (e.g., Emoji, Singkatan, Slang).'),
+  linguisticCategory: z.string().describe('The linguistic category of the term (e.g., Emoji, Abbreviation/Singkatan, Slang).'),
   socialCategory: z.string().describe('The social category of the term (e.g., Komunikasi Sosial, Ekspresi Emosi).'),
   explanation: z.string().describe('A detailed explanation of the term and its usage.'),
   exampleSentences: z.array(z.string()).describe('Example sentences showing how the term is used in daily conversation.'),
@@ -37,7 +37,7 @@ const interpretYouthLanguagePrompt = ai.definePrompt({
   name: 'interpretYouthLanguagePrompt',
   input: {schema: InterpretYouthLanguageInputSchema},
   output: {schema: InterpretYouthLanguageOutputSchema},
-  prompt: `You are an expert in modern youth language and culture. Given a keyword, phrase, or emoji, you will provide a detailed interpretation of its meaning and usage.
+  prompt: `You are an expert in modern youth language and culture. Given a keyword, phrase, abbreviation, or emoji, you will provide a detailed interpretation of its meaning and usage.
 
   Your entire response, including all fields, must be in the language specified by the 'language' parameter.
   - If 'language' is 'id', respond in Bahasa Indonesia.
