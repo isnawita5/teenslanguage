@@ -35,7 +35,7 @@ const formSchema = z.object({
 
 const translations = {
     id: {
-        title: "ReLanguage Decipher",
+        title: "Teens Language",
         subtitle: "Uraikan bahasa gaul modern, slang, dan emoji dengan kekuatan AI.",
         searchPlaceholder: "Ketik kata, frasa, atau emoji (mis., 'santuy', 'kepo', '💀')...",
         searchButton: "Cari",
@@ -58,7 +58,7 @@ const translations = {
         comicGenerationPrompt: "Klik untuk membuat komik strip AI.",
     },
     en: {
-        title: "ReLanguage Decipher",
+        title: "Teens Language",
         subtitle: "Decode modern youth language, slang, and emojis with the power of AI.",
         searchPlaceholder: "Type a word, phrase, or emoji (e.g., 'rizz', 'iykyk', '💀')...",
         searchButton: "Search",

@@ -17,10 +17,10 @@ import { Icons } from './icons';
 const translations = {
   id: {
     about: 'Tentang',
-    title: 'Tentang ReLanguage Decipher',
+    title: 'Tentang Teens Language',
     intro:
-      'ReLanguage Decipher adalah alat yang didukung AI yang dirancang untuk membantu orang tua, pendidik, dan siapa saja untuk memahami bahasa gaul, istilah, dan emoji yang terus berkembang yang digunakan oleh generasi muda.',
-    goal: 'Misi utama kami adalah menjembatani kesenjangan komunikasi antargenerasi, mendorong pemahaman dan hubungan yang lebih baik. Di dunia di mana bahasa digital berubah dengan cepat, ReLanguage Decipher hadir sebagai panduan ramah Anda.',
+      'Teens Language adalah alat yang didukung AI yang dirancang untuk membantu orang tua, pendidik, dan siapa saja untuk memahami bahasa gaul, istilah, dan emoji yang terus berkembang yang digunakan oleh generasi muda.',
+    goal: 'Misi utama kami adalah menjembatani kesenjangan komunikasi antargenerasi, mendorong pemahaman dan hubungan yang lebih baik. Di dunia di mana bahasa digital berubah dengan cepat, Teens Language hadir sebagai panduan ramah Anda.',
     howItWorksTitle: 'Cara Kerja',
     howItWorks:
       'Cukup ketik kata, frasa, atau bahkan emoji ke dalam kolom pencarian. AI canggih kami, yang didukung oleh model terbaru Google, akan menganalisis permintaan Anda dan memberikan rincian komprehensif, termasuk makna, platform penggunaan umum, konteks linguistik dan sosial, dan contoh kalimat. Anda juga dapat membuat komik strip yang menyenangkan untuk menghidupkan bahasa!',
@@ -34,10 +34,10 @@ const translations = {
   },
   en: {
     about: 'About',
-    title: 'About ReLanguage Decipher',
+    title: 'About Teens Language',
     intro:
-      'ReLanguage Decipher is an AI-powered tool designed to help parents, educators, and anyone interested in understanding the ever-evolving slang, terms, and emojis used by the younger generation.',
-    goal: 'Our primary mission is to bridge the communication gap between generations, fostering better understanding and connection. In a world where digital language changes rapidly, ReLanguage Decipher serves as your friendly guide.',
+      'Teens Language is an AI-powered tool designed to help parents, educators, and anyone interested in understanding the ever-evolving slang, terms, and emojis used by the younger generation.',
+    goal: 'Our primary mission is to bridge the communication gap between generations, fostering better understanding and connection. In a world where digital language changes rapidly, Teens Language serves as your friendly guide.',
     howItWorksTitle: 'How It Works',
     howItWorks:
       "Simply type a word, phrase, or even an emoji into the search bar. Our advanced AI, powered by Google's latest models, will analyze the query and provide a comprehensive breakdown, including its meaning, context, and real-world example sentences. You can also generate a fun comic strip to bring the language to life!",

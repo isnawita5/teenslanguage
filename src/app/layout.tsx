@@ -5,7 +5,7 @@ import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'ReLanguage Decipher',
+  title: 'Teens Language',
   description: 'Decode modern youth language, slang, and emojis.',
 };
 
