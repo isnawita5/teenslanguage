@@ -36,7 +36,7 @@ const InfoBlock = ({ icon, title, value }: { icon: React.ReactNode, title: strin
         </div>
         <div>
             <p className="text-sm font-medium text-muted-foreground">{title}</p>
-            <p className="font-headline text-lg font-semibold">{value}</p>
+            <p className="font-headline text-lg font-semibold text-justify">{value}</p>
         </div>
     </div>
 )
@@ -76,7 +76,7 @@ export function ResultsDisplay({ data, translations }: ResultsDisplayProps) {
               <Sparkles className="h-6 w-6 text-accent"/>
               <h4 className="font-headline text-2xl font-semibold">{translations.explanation}</h4>
             </div>
-            <p className="text-muted-foreground leading-relaxed">{data.explanation}</p>
+            <p className="text-muted-foreground leading-relaxed text-justify">{data.explanation}</p>
           </div>
         </div>
 
