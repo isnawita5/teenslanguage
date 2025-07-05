@@ -49,7 +49,7 @@ const translations = {
         explanation: "Penjelasan",
         exampleUsage: "Contoh Penggunaan",
         references: "Referensi",
-        projectBy: "Sebuah proyek oleh Isnawita Mokodompit, S. Pd, M. Pd.",
+        projectBy: "Sebuah proyek oleh Wita_RJ",
         comicIllustration: "Ilustrasi Komik",
         generateIllustration: "Buatkan Ilustrasi",
         generatingComic: "Membuat komik...",
