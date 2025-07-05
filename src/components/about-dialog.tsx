@@ -30,7 +30,7 @@ const translations = {
       'Klik tombol "Cari" untuk melihat hasil yang terperinci.',
       'Klik "Buatkan Ilustrasi" untuk melihat komik strip berdasarkan contoh kalimat.',
     ],
-    projectBy: 'Dikembangkan oleh Tolopani dan Isnawita',
+    projectBy: 'Dikembangkan oleh Wita_RJ',
   },
   en: {
     about: 'About',
@@ -47,7 +47,7 @@ const translations = {
       'Click the "Search" button to see the detailed results.',
       'Click "Generate Illustration" to see a comic strip based on the example sentences.',
     ],
-    projectBy: 'Developed by Tolopani and Isnawita',
+    projectBy: 'Developed by Wita_RJ',
   },
 };
 
